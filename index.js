@@ -383,3 +383,19 @@ const circleAreaArr = areaCalculate(arr, circleArea);
 const squarAreaArr = areaCalculate(arr, squarArea);
 console.log(circleAreaArr);
 console.log(squarAreaArr);
+
+function myfnc(){
+  console.log(this)
+  
+}
+
+myfnc(); // window object
+
+let Person = {
+  name : 'Mafia',
+  sayName: function(){
+    console.log(this)
+  }
+}
+
+Person.sayName(); // Person object

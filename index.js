@@ -199,3 +199,7 @@ const b = ['HTML', 'CSS', 'JavaScript'];
 
 const c = [...a, ...b];
 console.log(c);
+
+b.push('React');
+
+console.log(b);

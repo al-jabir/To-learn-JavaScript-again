@@ -224,7 +224,74 @@ function outerFunc(a) {
 
   innerFunc();
 
-  console.log(innerFuncVariable); // undefined
+  // console.log(innerFuncVariable); // undefined
 }
 
 outerFunc('function variable');
+
+//  clousures
+
+function add(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+
+const addFive = add(5);
+console.log(addFive(3)); // 8
+console.log(add(5)(4)); // 8
+console.log(add(10)(20)); // 30
+
+//  IIFE
+(function () {
+  console.log('I am IIFE');
+})();
+//  IIFE with parameter
+(function (name) {
+  console.log('Hello ' + name);
+})('Jabir');
+//  IIFE with return value
+(function (name) {
+  return 'Hello ' + name;
+})('Jabir');
+//  IIFE with return value and assign to variable
+const greeting = (function (name) {
+  return 'Hello ' + name;
+})('Jabir');
+console.log(greeting); // Hello Jabir
+//  IIFE with return value and assign to variable and use in function
+const greetingFunc = (function (name) {
+  return function () {
+    return 'Hello ' + name;
+  };
+})('Jabir');
+console.log(greetingFunc()); // Hello Jabir
+//  IIFE with return value and assign to variable and use in function and pass parameter
+const greetingFuncParam = (function (name) {
+  return function (name2) {
+    return 'Hello ' + name + ' and ' + name2;
+  };
+})('Jabir');
+console.log(greetingFuncParam('Mafia')); // Hello Jabir and Mafia
+//  IIFE with return value and assign to variable and use in function and pass parameter and use in function
+const greetingFuncParam2 = (function (name) {
+  return function (name2) {
+    return function (name3) {
+      return 'Hello ' + name + ' and ' + name2 + ' and ' + name3;
+    };
+  };
+})('Jabir');
+console.log(greetingFuncParam2('Mafia')('Ali')); // Hello Jabir and Mafia and Ali
+//  IIFE with return value and assign to variable and use in function and pass parameter and use in function and pass parameter
+const greetingFuncParam3 = (function (name) {
+  return function (name2) {
+    return function (name3) {
+      return function (name4) {
+        return (
+          'Hello ' + name + ' and ' + name2 + ' and ' + name3 + ' and ' + name4
+        );
+      };
+    };
+  };
+})('Jabir');
+console.log(greetingFuncParam3('Mafia')('Ali')('Sami')); // Hello Jabir and Mafia and Ali and Sami

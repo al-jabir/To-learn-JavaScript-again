@@ -295,3 +295,91 @@ const greetingFuncParam3 = (function (name) {
   };
 })('Jabir');
 console.log(greetingFuncParam3('Mafia')('Ali')('Sami')); // Hello Jabir and Mafia and Ali and Sami
+
+//  lexical & closure
+
+function outerFunction() {
+  let count = 0;
+  return function innerFunction() {
+    count++;
+    console.log(count);
+  };
+}
+
+const counterx = outerFunction();
+counterx(); // 1
+counterx(); // 2
+counterx(); // 3
+counterx(); // 4
+counterx(); // 5
+
+// console.log(count); // ReferenceError: count is not defined
+
+// lexical & closure with parameter
+function outerFunctionx() {
+  let count = 0;
+  return function innerFunctionx(a) {
+    count += a;
+    console.log(count);
+  };
+}
+const counterx2 = outerFunctionx();
+counterx2(5); // 5
+counterx2(10); // 15
+
+// higher order function
+
+function modifyBy2(arr) {
+  let output = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    output.push(arr[i] + 2);
+  }
+  return output;
+}
+
+const newArr = modifyBy2([1, 2, 3, 4, 5]);
+console.log(newArr); // [3, 4, 5, 6, 7]
+
+function modifyArr(arr, cb) {
+  let output = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    output.push(cb(arr[i]));
+  }
+  return output;
+}
+
+function multiplyBy2(num) {
+  return num * 2;
+}
+
+function divideBy2(num) {
+  return num / 2;
+}
+const newArr2 = modifyArr([1, 2, 3, 4, 5], multiplyBy2);
+console.log(newArr2); // [2, 4, 6, 8, 10]
+const newArr3 = modifyArr([1, 2, 3, 4, 5], divideBy2);
+console.log(newArr3); // [0.5, 1, 1.5, 2, 2.5]
+
+// project
+
+function areaCalculate(arrWidth, cb) {
+  const area = arrWidth.map((x) => cb(x));
+  return area;
+}
+
+function circleArea(radius){
+  return Math.PI * radius * radius;
+}
+
+
+function squarArea(side){
+  return side * side;
+}
+
+const arr = [1, 2, 3, 4, 5];
+const circleAreaArr = areaCalculate(arr, circleArea);
+const squarAreaArr = areaCalculate(arr, squarArea);
+console.log(circleAreaArr);
+console.log(squarAreaArr);

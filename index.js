@@ -203,3 +203,28 @@ console.log(c);
 b.push('React');
 
 console.log(b);
+
+const fruits = ['Apple', 'Banana', 'Orange'];
+
+const resFruits = fruits.concat(['Grapes', 'Mango']);
+console.log(resFruits);
+console.log(fruits);
+
+// lexical scope
+
+function outerFunc(a) {
+  var outerFuncVariable = 'Hi there, I am outer ' + a;
+
+  console.log(outerFuncVariable); // Hi there, I am outer function variable
+
+  function innerFunc() {
+    var innerFuncVariable = 'Hi there, I am inner ' + a;
+    console.log(innerFuncVariable); // Hi there, I am inner function variable
+  }
+
+  innerFunc();
+
+  console.log(innerFuncVariable); // undefined
+}
+
+outerFunc('function variable');

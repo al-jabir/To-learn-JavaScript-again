@@ -399,3 +399,27 @@ let Person = {
 }
 
 Person.sayName(); // Person object
+
+//  non premitive data types
+
+let arr1 = ['Javascript','React','ExpressJS'];
+let arr2 = arr1;
+console.log(arr1);
+console.log(arr2);
+arr2.push('NodeJS');
+console.log(arr1);
+console.log(arr2);
+//  shallow copy
+let arr3 = [...arr1];
+console.log(arr3);
+arr3.push('MongoDB');
+console.log(arr1);
+console.log(arr3);
+
+
+for(let i=0; i<localStorage.length; i++) {
+  let key = localStorage.key(i);
+ console.log(`${key}: ${localStorage.getItem(key)}`);
+ }
+ 
+ 

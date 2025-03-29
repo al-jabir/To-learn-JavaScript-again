@@ -193,4 +193,9 @@ helloWorld()();
 //   console.log('Button Clicked!');
 // }
 
+const a = ['JS', 'Python', 'Java', 'C++'];
 
+const b = ['HTML', 'CSS', 'JavaScript'];
+
+const c = [...a, ...b];
+console.log(c);

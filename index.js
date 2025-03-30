@@ -435,3 +435,7 @@ for (let i = 1; i <= 5; i++) {
     sum += i;
 }
 console.log(sum);
+
+let scores = ((2 * (3 + 5)) - 1);
+
+console.log(scores);

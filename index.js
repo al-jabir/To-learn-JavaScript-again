@@ -448,3 +448,35 @@ console.log(typeof balance);
 console.log(typeof newBalance);
 console.log(balance);
 console.log(newBalance);
+// prototype
+
+function Persons(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const person1 = new Persons('Mafia', 25);
+console.log(person1.name);
+console.log(person1.age)
+
+function Employee(name, age, job) {
+  Person.call(this, name, age); // Parent constructor কে কল করা
+  this.job = job;
+}
+
+// Inherit Person prototype
+Employee.prototype = Object.create(Person.prototype);
+Employee.prototype.constructor = Employee;
+
+// নতুন মেথড যোগ করা
+Employee.prototype.work = function() {
+  return `${this.name} works as a ${this.job}.`;
+};
+
+const employee1 = new Employee("Sakib", 30, "Web Developer");
+
+console.log(employee1.greet()); 
+// Output: Hello, my name is Sakib and I am 30 years old.
+
+console.log(employee1.work()); 
+// Output: Sakib works as a Web Developer.

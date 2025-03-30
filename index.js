@@ -429,13 +429,22 @@ while (i < 3) {
   i++;
 }
 
-
 let sum = 0;
 for (let i = 1; i <= 5; i++) {
-    sum += i;
+  sum += i;
 }
 console.log(sum);
 
-let scores = ((2 * (3 + 5)) - 1);
+let scores = 2 * (3 + 5) - 1;
 
 console.log(scores);
+
+// primitives
+
+let balance = 198;
+let newBalance = new Number(198);
+
+console.log(typeof balance);
+console.log(typeof newBalance);
+console.log(balance);
+console.log(newBalance);

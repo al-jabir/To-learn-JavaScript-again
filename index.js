@@ -369,12 +369,11 @@ function areaCalculate(arrWidth, cb) {
   return area;
 }
 
-function circleArea(radius){
+function circleArea(radius) {
   return Math.PI * radius * radius;
 }
 
-
-function squarArea(side){
+function squarArea(side) {
   return side * side;
 }
 
@@ -384,25 +383,24 @@ const squarAreaArr = areaCalculate(arr, squarArea);
 console.log(circleAreaArr);
 console.log(squarAreaArr);
 
-function myfnc(){
-  console.log(this)
-  
+function myfnc() {
+  console.log(this);
 }
 
 myfnc(); // window object
 
 let Person = {
-  name : 'Mafia',
-  sayName: function(){
-    console.log(this)
-  }
-}
+  name: 'Mafia',
+  sayName: function () {
+    console.log(this);
+  },
+};
 
 Person.sayName(); // Person object
 
 //  non premitive data types
 
-let arr1 = ['Javascript','React','ExpressJS'];
+let arr1 = ['Javascript', 'React', 'ExpressJS'];
 let arr2 = arr1;
 console.log(arr1);
 console.log(arr2);
@@ -416,10 +414,24 @@ arr3.push('MongoDB');
 console.log(arr1);
 console.log(arr3);
 
-
-for(let i=0; i<localStorage.length; i++) {
+for (let i = 0; i < localStorage.length; i++) {
   let key = localStorage.key(i);
- console.log(`${key}: ${localStorage.getItem(key)}`);
- }
- 
- 
+  console.log(`${key}: ${localStorage.getItem(key)}`);
+}
+
+const myArr = [1, 2, 4, 5];
+
+console.log(myArr.length);
+
+let i = 0;
+while (i < 3) {
+  console.log(i);
+  i++;
+}
+
+
+let sum = 0;
+for (let i = 1; i <= 5; i++) {
+    sum += i;
+}
+console.log(sum);

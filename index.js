@@ -457,26 +457,72 @@ function Persons(name, age) {
 
 const person1 = new Persons('Mafia', 25);
 console.log(person1.name);
-console.log(person1.age)
+console.log(person1.age);
 
-function Employee(name, age, job) {
-  Person.call(this, name, age); // Parent constructor কে কল করা
-  this.job = job;
-}
+// function Employee(name, age, job) {
+//   Person.call(this, name, age); // Parent constructor কে কল করা
+//   this.job = job;
+// }
 
 // Inherit Person prototype
-Employee.prototype = Object.create(Person.prototype);
-Employee.prototype.constructor = Employee;
+// Employee.prototype = Object.create(Person.prototype);
+// Employee.prototype.constructor = Employee;
 
 // নতুন মেথড যোগ করা
-Employee.prototype.work = function() {
-  return `${this.name} works as a ${this.job}.`;
-};
+// Employee.prototype.work = function () {
+//   return `${this.name} works as a ${this.job}.`;
+// };
 
-const employee1 = new Employee("Sakib", 30, "Web Developer");
+// const employee1 = new Employee('Sakib', 30, 'Web Developer');
 
-console.log(employee1.greet()); 
+// console.log(employee1.greet());
 // Output: Hello, my name is Sakib and I am 30 years old.
 
-console.log(employee1.work()); 
+// console.log(employee1.work());
 // Output: Sakib works as a Web Developer.
+
+const checkEvenOrOdd = (n) => {
+  return n % 2 === 0 ? 'Even' : 'Odd';
+};
+
+console.log(checkEvenOrOdd(5)); // Odd
+console.log(checkEvenOrOdd(10)); // Even
+
+// clousers
+
+function outerFunction() {
+  let counters = 5;
+  return function innerFunction() {
+    counters++;
+    return counters;
+  };
+}
+
+const incrementCounter = outerFunction();
+console.log(incrementCounter()); // 6
+console.log(incrementCounter()); // 7
+console.log(incrementCounter()); // 8
+console.log(incrementCounter()); // 9
+
+// Promise
+
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let success = true; // Simulating success or failure
+      if (success) {
+        resolve('Data fetched successfully!');
+      } else {
+        reject('Error fetching data.');
+      }
+    }, 2000);
+  });
+}
+
+const response = fetchData();
+
+console.log(response); // Promise { <pending> }
+
+fetchData()
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));

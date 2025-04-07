@@ -526,3 +526,33 @@ console.log(response); // Promise { <pending> }
 fetchData()
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
+
+//  total cost and price calculation
+
+const carts = [
+  {
+    name: 'Laptop',
+    price: 908,
+    quantity: 1,
+  },
+  {
+    name: 'Mobile',
+    price: 548,
+    quantity: 3,
+  },
+  {
+    name: 'Ipad',
+    price: 350,
+    quantity: 1,
+  },
+];
+
+const totalCost = carts.reduce((acc, item) => acc + item.price, 0);
+console.log(`Total cost : ${totalCost}`);
+
+const totalPrice = carts.reduce(
+  (acc, item) => acc + item.price * item.quantity,
+  0
+);
+
+console.log(`Total price: ${totalPrice}`);
